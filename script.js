@@ -1,23 +1,27 @@
-// Shopping cart
-let cart = [];
+// Digital Info Shopping Cart
 
-// Add product to cart
+let cart = [];
+let cartCount = 0;
+
 function addToCart(productName, price) {
-    const product = {
+
+    cart.push({
         name: productName,
         price: price
-    };
+    });
 
-    cart.push(product);
+    cartCount = cart.length;
 
     updateCart();
 
     alert(productName + " added to cart!");
 }
 
-// Update cart count
 function updateCart() {
+
     const cartElement = document.querySelector(".cart");
 
-    cartElement.textContent = "🛒 Cart (" + cart.length + ")";
+    if (cartElement) {
+        cartElement.innerHTML = "🛒 Cart (" + cartCount + ")";
+    }
 }
