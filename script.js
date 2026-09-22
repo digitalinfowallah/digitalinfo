@@ -6,7 +6,7 @@ let cart = [];
 
 
 // =====================================
-// ADD PRODUCT TO CART
+// ADD TO CART
 // =====================================
 
 function addToCart(productName, price) {
@@ -47,12 +47,12 @@ function updateCart() {
 
 
 // =====================================
-// UPDATE CART NUMBER
+// CART COUNT
 // =====================================
 
 function updateCartCount() {
 
-    const cartCountElement =
+    const cartCount =
         document.getElementById("cartCount");
 
     let totalItems = 0;
@@ -63,10 +63,8 @@ function updateCartCount() {
 
     });
 
-    if (cartCountElement) {
-
-        cartCountElement.textContent = totalItems;
-
+    if (cartCount) {
+        cartCount.textContent = totalItems;
     }
 
 }
@@ -88,7 +86,6 @@ function displayCart() {
         return;
     }
 
-
     if (cart.length === 0) {
 
         cartItems.innerHTML =
@@ -99,10 +96,8 @@ function displayCart() {
         return;
     }
 
-
     let html = "";
     let total = 0;
-
 
     cart.forEach((item, index) => {
 
@@ -111,9 +106,7 @@ function displayCart() {
 
         total += itemTotal;
 
-
         html += `
-
             <div class="cart-item">
 
                 <div class="cart-item-info">
@@ -123,16 +116,14 @@ function displayCart() {
                     </div>
 
                     <div class="cart-item-price">
-                        ₹${item.price.toLocaleString('en-IN')}
+                        ₹${item.price.toLocaleString("en-IN")}
                     </div>
 
                 </div>
 
-
                 <div class="quantity-controls">
 
-                    <button
-                        onclick="decreaseQuantity(${index})">
+                    <button onclick="decreaseQuantity(${index})">
                         −
                     </button>
 
@@ -140,28 +131,22 @@ function displayCart() {
                         ${item.quantity}
                     </span>
 
-                    <button
-                        onclick="increaseQuantity(${index})">
+                    <button onclick="increaseQuantity(${index})">
                         +
                     </button>
 
                 </div>
 
-
                 <button
                     class="remove-button"
                     onclick="removeFromCart(${index})">
-
                     Remove
-
                 </button>
 
             </div>
-
         `;
 
     });
-
 
     cartItems.innerHTML = html;
 
@@ -227,9 +212,17 @@ function openCart() {
     const cartPopup =
         document.getElementById("cartPopup");
 
-    cartPopup.style.display = "flex";
+    if (!cartPopup) {
+
+        alert("Cart popup was not found.");
+
+        return;
+
+    }
 
     displayCart();
+
+    cartPopup.style.display = "flex";
 
 }
 
@@ -243,7 +236,11 @@ function closeCart() {
     const cartPopup =
         document.getElementById("cartPopup");
 
-    cartPopup.style.display = "none";
+    if (cartPopup) {
+
+        cartPopup.style.display = "none";
+
+    }
 
 }
 
@@ -282,11 +279,12 @@ function searchProducts() {
     const products =
         document.querySelectorAll(".product-card");
 
-
     products.forEach(product => {
 
         const productName =
-            product.querySelector("h3").textContent.toLowerCase();
+            product.querySelector("h3")
+                .textContent
+                .toLowerCase();
 
         if (productName.includes(searchText)) {
 
@@ -301,6 +299,8 @@ function searchProducts() {
     });
 
 }
+
+
 // =====================================
 // PRODUCT CATEGORY FILTER
 // =====================================
