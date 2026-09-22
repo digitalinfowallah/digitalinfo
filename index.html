@@ -60,7 +60,7 @@
         <h2>Our Products</h2>
 
 
-        <!-- SEARCH BOX -->
+        <!-- SEARCH -->
         <div class="search-box">
 
             <input
@@ -73,11 +73,38 @@
         </div>
 
 
+        <!-- CATEGORIES -->
+        <div class="category-buttons">
+
+            <button onclick="filterProducts('all')">
+                All
+            </button>
+
+            <button onclick="filterProducts('phones')">
+                📱 Phones
+            </button>
+
+            <button onclick="filterProducts('audio')">
+                🎧 Audio
+            </button>
+
+            <button onclick="filterProducts('watches')">
+                ⌚ Watches
+            </button>
+
+            <button onclick="filterProducts('laptops')">
+                💻 Laptops
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCT CONTAINER -->
         <div class="product-container">
 
 
             <!-- PRODUCT 1 -->
-            <div class="product-card">
+            <div class="product-card" data-category="phones">
 
                 <div class="product-image">
                     📱
@@ -99,7 +126,7 @@
 
 
             <!-- PRODUCT 2 -->
-            <div class="product-card">
+            <div class="product-card" data-category="audio">
 
                 <div class="product-image">
                     🎧
@@ -121,7 +148,7 @@
 
 
             <!-- PRODUCT 3 -->
-            <div class="product-card">
+            <div class="product-card" data-category="watches">
 
                 <div class="product-image">
                     ⌚
@@ -143,7 +170,7 @@
 
 
             <!-- PRODUCT 4 -->
-            <div class="product-card">
+            <div class="product-card" data-category="laptops">
 
                 <div class="product-image">
                     💻
