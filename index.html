@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
 
 
@@ -23,7 +22,6 @@
 
 <header class="main-header">
 
-    <!-- LOGO -->
     <div class="brand">
 
         <div class="brand-logo">
@@ -43,7 +41,6 @@
     </div>
 
 
-    <!-- NAVIGATION -->
     <nav class="main-nav">
 
         <a href="#home" class="active">
@@ -65,7 +62,6 @@
     </nav>
 
 
-    <!-- RIGHT SIDE -->
     <div class="header-right">
 
         <div class="header-search">
@@ -73,9 +69,10 @@
             <span>🔎</span>
 
             <input
+                id="headerSearch"
                 type="text"
                 placeholder="Search products..."
-            >
+                onkeyup="headerSearchProducts()">
 
         </div>
 
@@ -110,7 +107,6 @@
     class="hero-modern"
     id="home">
 
-
     <div class="hero-content-modern">
 
         <div class="hero-badge">
@@ -141,9 +137,6 @@
 
     </div>
 
-
-
-    <!-- HERO PRODUCTS -->
 
     <div class="hero-products">
 
@@ -178,7 +171,8 @@
 
     <button
         class="category-card"
-        type="button">
+        type="button"
+        onclick="filterProducts('all')">
 
         <div class="category-icon all-icon">
             ▦
@@ -193,7 +187,8 @@
 
     <button
         class="category-card"
-        type="button">
+        type="button"
+        onclick="filterProducts('phones')">
 
         <div class="category-icon phone-icon">
             📱
@@ -208,7 +203,8 @@
 
     <button
         class="category-card"
-        type="button">
+        type="button"
+        onclick="filterProducts('audio')">
 
         <div class="category-icon audio-icon">
             🎧
@@ -223,7 +219,8 @@
 
     <button
         class="category-card"
-        type="button">
+        type="button"
+        onclick="filterProducts('watches')">
 
         <div class="category-icon watch-icon">
             ⌚
@@ -238,7 +235,8 @@
 
     <button
         class="category-card"
-        type="button">
+        type="button"
+        onclick="filterProducts('laptops')">
 
         <div class="category-icon laptop-icon">
             💻
@@ -249,7 +247,6 @@
         </strong>
 
     </button>
-
 
 </section>
 
@@ -263,8 +260,6 @@
     class="products-modern"
     id="products">
 
-
-    <!-- HEADING -->
 
     <div class="section-heading">
 
@@ -289,32 +284,43 @@
                 </span>
 
                 <input
+                    id="productSearch"
                     type="text"
                     placeholder="Search products..."
-                >
+                    onkeyup="searchProducts()">
 
             </div>
 
 
             <div class="category-buttons">
 
-                <button type="button">
+                <button
+                    type="button"
+                    onclick="filterProducts('all')">
                     All
                 </button>
 
-                <button type="button">
+                <button
+                    type="button"
+                    onclick="filterProducts('phones')">
                     📱 Phones
                 </button>
 
-                <button type="button">
+                <button
+                    type="button"
+                    onclick="filterProducts('audio')">
                     🎧 Audio
                 </button>
 
-                <button type="button">
+                <button
+                    type="button"
+                    onclick="filterProducts('watches')">
                     ⌚ Watches
                 </button>
 
-                <button type="button">
+                <button
+                    type="button"
+                    onclick="filterProducts('laptops')">
                     💻 Laptops
                 </button>
 
@@ -326,17 +332,18 @@
 
 
 
-    <!-- PRODUCT GRID -->
+    <!-- =================================================
+         PRODUCT GRID
+    ================================================= -->
 
     <div class="product-container-modern">
 
 
-        <!-- =================================================
-             PRODUCT 1
-        ================================================= -->
+        <!-- PRODUCT 1 -->
 
-        <div class="product-card-modern">
-
+        <div
+            class="product-card-modern"
+            data-category="phones">
 
             <div class="product-image-modern">
 
@@ -344,13 +351,11 @@
                     Best Seller
                 </div>
 
-
                 <button
                     class="wishlist"
                     type="button">
                     ♡
                 </button>
-
 
                 <div class="product-picture">
                     📱
@@ -365,19 +370,14 @@
                     Premium Smartphone
                 </h3>
 
-
                 <div class="rating">
                     ⭐ 4.8
-                    <span>
-                        (1.2k)
-                    </span>
+                    <span>(1.2k)</span>
                 </div>
-
 
                 <div class="price">
                     ₹19,999
                 </div>
-
 
                 <button
                     class="add-cart-modern"
@@ -393,12 +393,11 @@
 
 
 
-        <!-- =================================================
-             PRODUCT 2
-        ================================================= -->
+        <!-- PRODUCT 2 -->
 
-        <div class="product-card-modern">
-
+        <div
+            class="product-card-modern"
+            data-category="audio">
 
             <div class="product-image-modern">
 
@@ -406,13 +405,11 @@
                     Popular
                 </div>
 
-
                 <button
                     class="wishlist"
                     type="button">
                     ♡
                 </button>
-
 
                 <div class="product-picture">
                     🎧
@@ -427,19 +424,14 @@
                     Wireless Headphones
                 </h3>
 
-
                 <div class="rating">
                     ⭐ 4.7
-                    <span>
-                        (856)
-                    </span>
+                    <span>(856)</span>
                 </div>
-
 
                 <div class="price">
                     ₹2,999
                 </div>
-
 
                 <button
                     class="add-cart-modern"
@@ -455,12 +447,11 @@
 
 
 
-        <!-- =================================================
-             PRODUCT 3
-        ================================================= -->
+        <!-- PRODUCT 3 -->
 
-        <div class="product-card-modern">
-
+        <div
+            class="product-card-modern"
+            data-category="watches">
 
             <div class="product-image-modern">
 
@@ -468,13 +459,11 @@
                     New
                 </div>
 
-
                 <button
                     class="wishlist"
                     type="button">
                     ♡
                 </button>
-
 
                 <div class="product-picture">
                     ⌚
@@ -489,19 +478,14 @@
                     Smart Watch Pro
                 </h3>
 
-
                 <div class="rating">
                     ⭐ 4.6
-                    <span>
-                        (542)
-                    </span>
+                    <span>(542)</span>
                 </div>
-
 
                 <div class="price">
                     ₹3,999
                 </div>
-
 
                 <button
                     class="add-cart-modern"
@@ -517,12 +501,11 @@
 
 
 
-        <!-- =================================================
-             PRODUCT 4
-        ================================================= -->
+        <!-- PRODUCT 4 -->
 
-        <div class="product-card-modern">
-
+        <div
+            class="product-card-modern"
+            data-category="laptops">
 
             <div class="product-image-modern">
 
@@ -530,13 +513,11 @@
                     Top Rated
                 </div>
 
-
                 <button
                     class="wishlist"
                     type="button">
                     ♡
                 </button>
-
 
                 <div class="product-picture">
                     💻
@@ -551,19 +532,14 @@
                     Powerful Laptop
                 </h3>
 
-
                 <div class="rating">
                     ⭐ 4.9
-                    <span>
-                        (934)
-                    </span>
+                    <span>(934)</span>
                 </div>
-
 
                 <div class="price">
                     ₹49,999
                 </div>
-
 
                 <button
                     class="add-cart-modern"
@@ -579,12 +555,11 @@
 
 
 
-        <!-- =================================================
-             PRODUCT 5
-        ================================================= -->
+        <!-- PRODUCT 5 -->
 
-        <div class="product-card-modern">
-
+        <div
+            class="product-card-modern"
+            data-category="all">
 
             <div class="product-image-modern">
 
@@ -592,13 +567,11 @@
                     New
                 </div>
 
-
                 <button
                     class="wishlist"
                     type="button">
                     ♡
                 </button>
-
 
                 <div class="product-picture">
                     📷
@@ -613,19 +586,14 @@
                     Digital Camera
                 </h3>
 
-
                 <div class="rating">
                     ⭐ 4.7
-                    <span>
-                        (321)
-                    </span>
+                    <span>(321)</span>
                 </div>
-
 
                 <div class="price">
                     ₹24,999
                 </div>
-
 
                 <button
                     class="add-cart-modern"
@@ -641,12 +609,11 @@
 
 
 
-        <!-- =================================================
-             PRODUCT 6
-        ================================================= -->
+        <!-- PRODUCT 6 -->
 
-        <div class="product-card-modern">
-
+        <div
+            class="product-card-modern"
+            data-category="audio">
 
             <div class="product-image-modern">
 
@@ -654,13 +621,11 @@
                     Hot Deal
                 </div>
 
-
                 <button
                     class="wishlist"
                     type="button">
                     ♡
                 </button>
-
 
                 <div class="product-picture">
                     🔊
@@ -675,19 +640,14 @@
                     Bluetooth Speaker
                 </h3>
 
-
                 <div class="rating">
                     ⭐ 4.5
-                    <span>
-                        (675)
-                    </span>
+                    <span>(675)</span>
                 </div>
-
 
                 <div class="price">
                     ₹1,999
                 </div>
-
 
                 <button
                     class="add-cart-modern"
@@ -703,12 +663,11 @@
 
 
 
-        <!-- =================================================
-             PRODUCT 7
-        ================================================= -->
+        <!-- PRODUCT 7 -->
 
-        <div class="product-card-modern">
-
+        <div
+            class="product-card-modern"
+            data-category="all">
 
             <div class="product-image-modern">
 
@@ -716,13 +675,11 @@
                     Popular
                 </div>
 
-
                 <button
                     class="wishlist"
                     type="button">
                     ♡
                 </button>
-
 
                 <div class="product-picture">
                     🎮
@@ -737,19 +694,14 @@
                     Gaming Controller
                 </h3>
 
-
                 <div class="rating">
                     ⭐ 4.6
-                    <span>
-                        (412)
-                    </span>
+                    <span>(412)</span>
                 </div>
-
 
                 <div class="price">
                     ₹2,499
                 </div>
-
 
                 <button
                     class="add-cart-modern"
@@ -765,12 +717,11 @@
 
 
 
-        <!-- =================================================
-             PRODUCT 8
-        ================================================= -->
+        <!-- PRODUCT 8 -->
 
-        <div class="product-card-modern">
-
+        <div
+            class="product-card-modern"
+            data-category="laptops">
 
             <div class="product-image-modern">
 
@@ -778,13 +729,11 @@
                     Best Value
                 </div>
 
-
                 <button
                     class="wishlist"
                     type="button">
                     ♡
                 </button>
-
 
                 <div class="product-picture">
                     ⌨️
@@ -799,19 +748,14 @@
                     Wireless Keyboard
                 </h3>
 
-
                 <div class="rating">
                     ⭐ 4.5
-                    <span>
-                        (289)
-                    </span>
+                    <span>(289)</span>
                 </div>
-
 
                 <div class="price">
                     ₹1,499
                 </div>
-
 
                 <button
                     class="add-cart-modern"
@@ -846,15 +790,8 @@
         </div>
 
         <div>
-
-            <strong>
-                Fast Delivery
-            </strong>
-
-            <p>
-                Quick and reliable shipping
-            </p>
-
+            <strong>Fast Delivery</strong>
+            <p>Quick and reliable shipping</p>
         </div>
 
     </div>
@@ -867,15 +804,8 @@
         </div>
 
         <div>
-
-            <strong>
-                Secure Shopping
-            </strong>
-
-            <p>
-                Safe and protected checkout
-            </p>
-
+            <strong>Secure Shopping</strong>
+            <p>Safe and protected checkout</p>
         </div>
 
     </div>
@@ -888,15 +818,8 @@
         </div>
 
         <div>
-
-            <strong>
-                Best Prices
-            </strong>
-
-            <p>
-                Great products at great prices
-            </p>
-
+            <strong>Best Prices</strong>
+            <p>Great products at great prices</p>
         </div>
 
     </div>
@@ -909,15 +832,8 @@
         </div>
 
         <div>
-
-            <strong>
-                Customer Support
-            </strong>
-
-            <p>
-                We're here to help you
-            </p>
-
+            <strong>Customer Support</strong>
+            <p>We're here to help you</p>
         </div>
 
     </div>
@@ -935,19 +851,16 @@
     class="about-modern"
     id="about">
 
-
     <div>
 
         <span>
             ABOUT DIGITAL INFO
         </span>
 
-
         <h2>
             Technology for a
             <strong>Better Life</strong>
         </h2>
-
 
         <p>
             Digital Info brings useful technology products
@@ -969,16 +882,13 @@
     class="contact-modern"
     id="contact">
 
-
     <h2>
         Contact Us
     </h2>
 
-
     <p>
         📧 support@digitalinfo.com
     </p>
-
 
     <p>
         📞 Customer Support Available
@@ -1014,9 +924,7 @@
     id="cartPopup"
     class="cart-popup">
 
-
     <div class="cart-box">
-
 
         <button
             class="close-cart"
@@ -1061,7 +969,6 @@
             Proceed to Checkout
 
         </button>
-
 
     </div>
 
