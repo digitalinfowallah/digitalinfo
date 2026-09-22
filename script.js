@@ -2,8 +2,6 @@
 // DIGITAL INFO SHOPPING CART
 // =====================================
 
-
-// Cart storage
 let cart = [];
 
 
@@ -13,12 +11,8 @@ let cart = [];
 
 function addToCart(productName, price) {
 
-    // Check if product already exists
     const existingProduct =
-        cart.find(
-            item => item.name === productName
-        );
-
+        cart.find(item => item.name === productName);
 
     if (existingProduct) {
 
@@ -27,24 +21,16 @@ function addToCart(productName, price) {
     } else {
 
         cart.push({
-
             name: productName,
-
             price: price,
-
             quantity: 1
-
         });
 
     }
 
-
     updateCart();
 
-    alert(
-        productName +
-        " added to cart!"
-    );
+    alert(productName + " added to cart!");
 }
 
 
@@ -55,7 +41,6 @@ function addToCart(productName, price) {
 function updateCart() {
 
     updateCartCount();
-
     displayCart();
 
 }
@@ -68,28 +53,19 @@ function updateCart() {
 function updateCartCount() {
 
     const cartCountElement =
-        document.getElementById(
-            "cartCount"
-        );
-
+        document.getElementById("cartCount");
 
     let totalItems = 0;
 
+    cart.forEach(item => {
 
-    cart.forEach(
-        item => {
+        totalItems += item.quantity;
 
-            totalItems +=
-                item.quantity;
-
-        }
-    );
-
+    });
 
     if (cartCountElement) {
 
-        cartCountElement.textContent =
-            totalItems;
+        cartCountElement.textContent = totalItems;
 
     }
 
@@ -97,35 +73,26 @@ function updateCartCount() {
 
 
 // =====================================
-// DISPLAY CART ITEMS
+// DISPLAY CART
 // =====================================
 
 function displayCart() {
 
     const cartItems =
-        document.getElementById(
-            "cartItems"
-        );
-
+        document.getElementById("cartItems");
 
     const cartTotal =
-        document.getElementById(
-            "cartTotal"
-        );
-
+        document.getElementById("cartTotal");
 
     if (!cartItems || !cartTotal) {
         return;
     }
 
 
-    // Empty cart
     if (cart.length === 0) {
 
         cartItems.innerHTML =
-            '<p class="empty-cart">' +
-            'Your cart is empty.' +
-            '</p>';
+            '<p class="empty-cart">Your cart is empty.</p>';
 
         cartTotal.textContent = "0";
 
@@ -134,81 +101,72 @@ function displayCart() {
 
 
     let html = "";
-
     let total = 0;
 
 
-    // Create cart items
-    cart.forEach(
-        (item, index) => {
+    cart.forEach((item, index) => {
 
-            const itemTotal =
-                item.price *
-                item.quantity;
+        const itemTotal =
+            item.price * item.quantity;
 
-
-            total += itemTotal;
+        total += itemTotal;
 
 
-            html += `
+        html += `
 
-                <div class="cart-item">
+            <div class="cart-item">
 
-                    <div class="cart-item-info">
+                <div class="cart-item-info">
 
-                        <div class="cart-item-name">
-                            ${item.name}
-                        </div>
-
-                        <div class="cart-item-price">
-                            ₹${item.price.toLocaleString('en-IN')}
-                        </div>
-
+                    <div class="cart-item-name">
+                        ${item.name}
                     </div>
 
-
-                    <div class="quantity-controls">
-
-                        <button
-                            onclick="decreaseQuantity(${index})">
-                            −
-                        </button>
-
-                        <span>
-                            ${item.quantity}
-                        </span>
-
-                        <button
-                            onclick="increaseQuantity(${index})">
-                            +
-                        </button>
-
+                    <div class="cart-item-price">
+                        ₹${item.price.toLocaleString('en-IN')}
                     </div>
 
+                </div>
+
+
+                <div class="quantity-controls">
 
                     <button
-                        class="remove-button"
-                        onclick="removeFromCart(${index})">
+                        onclick="decreaseQuantity(${index})">
+                        −
+                    </button>
 
-                        Remove
+                    <span>
+                        ${item.quantity}
+                    </span>
 
+                    <button
+                        onclick="increaseQuantity(${index})">
+                        +
                     </button>
 
                 </div>
 
-            `;
 
-        }
-    );
+                <button
+                    class="remove-button"
+                    onclick="removeFromCart(${index})">
+
+                    Remove
+
+                </button>
+
+            </div>
+
+        `;
+
+    });
 
 
     cartItems.innerHTML = html;
 
-
     cartTotal.textContent =
-        total.toLocaleString(
-            "en-IN"
-        );
+        total.toLocaleString("en-IN");
 
 }
 
@@ -232,9 +190,7 @@ function increaseQuantity(index) {
 
 function decreaseQuantity(index) {
 
-    if (
-        cart[index].quantity > 1
-    ) {
+    if (cart[index].quantity > 1) {
 
         cart[index].quantity--;
 
@@ -243,7 +199,6 @@ function decreaseQuantity(index) {
         cart.splice(index, 1);
 
     }
-
 
     updateCart();
 
@@ -270,14 +225,9 @@ function removeFromCart(index) {
 function openCart() {
 
     const cartPopup =
-        document.getElementById(
-            "cartPopup"
-        );
+        document.getElementById("cartPopup");
 
-
-    cartPopup.style.display =
-        "flex";
-
+    cartPopup.style.display = "flex";
 
     displayCart();
 
@@ -291,13 +241,9 @@ function openCart() {
 function closeCart() {
 
     const cartPopup =
-        document.getElementById(
-            "cartPopup"
-        );
+        document.getElementById("cartPopup");
 
-
-    cartPopup.style.display =
-        "none";
+    cartPopup.style.display = "none";
 
 }
 
@@ -310,17 +256,48 @@ function checkout() {
 
     if (cart.length === 0) {
 
-        alert(
-            "Your cart is empty."
-        );
+        alert("Your cart is empty.");
 
         return;
 
     }
 
+    alert("Checkout system will be added next!");
 
-    alert(
-        "Checkout system will be added next!"
-    );
+}
+
+
+// =====================================
+// PRODUCT SEARCH
+// =====================================
+
+function searchProducts() {
+
+    const searchInput =
+        document.getElementById("productSearch");
+
+    const searchText =
+        searchInput.value.toLowerCase().trim();
+
+    const products =
+        document.querySelectorAll(".product-card");
+
+
+    products.forEach(product => {
+
+        const productName =
+            product.querySelector("h3").textContent.toLowerCase();
+
+        if (productName.includes(searchText)) {
+
+            product.style.display = "block";
+
+        } else {
+
+            product.style.display = "none";
+
+        }
+
+    });
 
 }
