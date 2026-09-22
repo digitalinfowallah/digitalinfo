@@ -59,6 +59,20 @@
 
         <h2>Our Products</h2>
 
+
+        <!-- SEARCH BOX -->
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="productSearch"
+                placeholder="🔎 Search products..."
+                onkeyup="searchProducts()"
+            >
+
+        </div>
+
+
         <div class="product-container">
 
 
@@ -149,6 +163,7 @@
 
             </div>
 
+
         </div>
 
     </section>
@@ -201,9 +216,11 @@
             <h2>Your Shopping Cart</h2>
 
             <div id="cartItems">
+
                 <p class="empty-cart">
                     Your cart is empty.
                 </p>
+
             </div>
 
             <div class="cart-total">
